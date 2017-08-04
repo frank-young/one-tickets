@@ -1,28 +1,13 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import Util from './libs/util'
 import store from './store'
 import filter from './filter'
-import iView from 'iview'
 import 'iview/dist/styles/iview.css'
-
-Vue.use(filter)
-Vue.use(iView)
-
-router.beforeEach((to, from, next) => {
-  iView.LoadingBar.start()
-  Util.title(to.meta.title)
-  next()
-})
-
-router.afterEach(() => {
-  iView.LoadingBar.finish()
-  window.scrollTo(0, 0)
-})
+import iView from 'iview'
 
 Vue.config.productionTip = false
-
+Vue.use(iView)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
@@ -33,6 +18,7 @@ new Vue({
   },
   router,
   store,
+  filter,
   template: '<App/>',
   components: { App }
 })
