@@ -39,8 +39,29 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less">
 #app {
   min-height: 100vh;
 }
+
+// 登录注册
+.login-wrap {
+  width: 100vw;
+  height: 100vh;
+  padding-top: 150px;
+  background-color: #f8f8f8;
+  .login {
+    width: 300px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px 40px;
+    box-shadow: 0 0 15px #e8e8e8;
+    .login-logo {
+      padding: 20px;
+      font-size: 20px;
+      text-align: center;
+    }
+  }
+}
+
 </style>

@@ -8,7 +8,7 @@
                     <Submenu name="1">
                         <template slot="title">
                             <Icon type="ios-navigate"></Icon>
-                            导航一
+                            门店信息
                         </template>
                         <Menu-item name="1-1" @click.native="toDetail(1)">选项 1</Menu-item>
                         <Menu-item name="1-2" @click.native="toDetail(2)">选项 2</Menu-item>

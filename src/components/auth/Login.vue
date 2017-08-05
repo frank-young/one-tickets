@@ -55,19 +55,5 @@ export default {
 </script>
 
 <style lang="less">
-.login-wrap {
-  width: 100vw;
-  height: 100vh;
-  padding-top: 150px;
-  background-color: #f8f8f8;
-  .login {
-    width: 250px;
-    margin: 0 auto;
-    .login-logo {
-      padding: 20px;
-      font-size: 20px;
-      text-align: center;
-    }
-  }
-}
+
 </style>
