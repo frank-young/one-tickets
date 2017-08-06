@@ -1,18 +1,18 @@
 <template>
     <div class="login-wrap">
-      <div class="login">
+      <div class="login pay">
         <div class="login-logo">
           账户支付
         </div>
         <Radio-group v-model="vertical" vertical>
-            <Radio label="wxpay">
-                <!-- <Icon type="social-apple"></Icon> -->
-                <span>微信支付</span>
-            </Radio>
-            <Radio label="alipay">
-                <!-- <Icon type="social-android"></Icon> -->
-                <span>支付宝支付</span>
-            </Radio>
+          <Radio label="alipay">
+            <img class="icon-pay" src="./img/alipay.jpg" alt="">
+            <span>支付宝支付</span>
+          </Radio>
+          <Radio label="wxpay">
+            <img class="icon-pay" src="./img/wxpay.jpg" alt="">
+            <span>微信支付</span>
+          </Radio>
         </Radio-group>
         <div class="">
           <Button type="primary" @click="payCtrl" long>支付</Button>
@@ -25,7 +25,7 @@
 export default {
   data () {
     return {
-      vertical: 'apple'
+      vertical: 'alipay'
     }
   },
   created () {
@@ -43,5 +43,16 @@ export default {
 </script>
 
 <style lang="less">
-
+  .pay {
+    .ivu-radio-group-vertical .ivu-radio-wrapper {
+      height: 30px;
+      line-height: 30px;
+      margin-bottom: 20px;
+    }
+    .icon-pay {
+      display: inline-block;
+      width: 30px;
+      vertical-align: middle;
+    }
+  }
 </style>

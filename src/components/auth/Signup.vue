@@ -25,29 +25,32 @@
               </Row>
             </Form-item>
             <Form-item label="注册账户">
-                <Select v-model="formValidate.select" placeholder="请选择">
-                    <Option value="BASE" label="基础版">
-                      <span>基础版</span>
-                      <span style="float:right;color:#f44">999/年</span>
-                    </Option>
-                    <Option value="ADVANCED" label="高级版">
-                      <span>高级版</span>
-                      <span style="float:right;color:#f44">2999/年</span>
-                    </Option>
-                    <Option value="FLAGSHIP" label="旗舰版">
-                      <span>旗舰版</span>
-                      <span style="float:right;color:#f44">4999/年</span>
-                    </Option>
-                </Select>
+              <Row>
+                <Col span="20">
+                  <Select v-model="formValidate.select" placeholder="请选择">
+                      <Option value="TEST" label="试用版">
+                        <span>试用版</span>
+                        <span class="color-green">免费</span>
+                      </Option>
+                      <Option value="BASE" label="基础版">
+                        <span>基础版</span>
+                        <span class="color-red">999/年</span>
+                      </Option>
+                      <Option value="ADVANCED" label="高级版">
+                        <span>高级版</span>
+                        <span class="color-red">2999/年</span>
+                      </Option>
+                      <Option value="FLAGSHIP" label="旗舰版">
+                        <span>旗舰版</span>
+                        <span class="color-red">4999/年</span>
+                      </Option>
+                  </Select>
+                </Col>
+                <Col span="2" offset="2" @click.native="modal = true">
+                  <Icon type="ios-help-outline" size="16"></Icon>
+                </Col>
+              </Row>
             </Form-item>
-            <!-- <Form-item label="多选框">
-                <Checkbox-group v-model="formValidate.checkbox">
-                    <Checkbox label="吃饭"></Checkbox>
-                    <Checkbox label="睡觉"></Checkbox>
-                    <Checkbox label="跑步"></Checkbox>
-                    <Checkbox label="看电影"></Checkbox>
-                </Checkbox-group>
-            </Form-item> -->
             <Form-item label="开关">
                 <i-switch v-model="formValidate.isSwitch" size="large">
                     <span slot="open">开启</span>
@@ -59,6 +62,38 @@
             </Form-item>
         </Form>
       </div>
+      <Modal
+          v-model="modal"
+          title="账户版本"
+          width="780">
+          <!-- <Row>
+            <Col span="6">
+              <div class="beta-wrap">
+                <h3>试用版</h3>
+                <h4>免费</h4>
+              </div>
+            </Col>
+            <Col span="6">
+              <div class="beta-wrap">
+                <h3>基础版</h3>
+                <h4>999/年</h4>
+              </div>
+            </Col>
+            <Col span="6">
+              <div class="beta-wrap">
+                <h3>高级版</h3>
+                <h4>2999/年</h4>
+              </div>
+            </Col>
+            <Col span="6">
+              <div class="beta-wrap">
+                <h3>旗舰版</h3>
+                <h4>4999/年</h4>
+              </div>
+            </Col>
+          </Row> -->
+          <Table border :columns="columns" :data="tableData"></Table>
+      </Modal>
     </div>
 </template>
 <script>
@@ -72,7 +107,7 @@ export default {
         store: '',
         phone: '',
         input: '',
-        select: '',
+        select: 'TEST',
         radio: 'male',
         checkbox: [],
         isSwitch: true,
@@ -85,7 +120,27 @@ export default {
         name: V.verify.name,
         phone: V.verify.phone,
         store: V.verify.store
-      }
+      },
+      modal: false,
+      // table
+      columns: [
+        {
+          title: '免费版',
+          key: 'name'
+        },
+        {
+          title: '基础版',
+          key: 'name'
+        },
+        {
+          title: '高级版',
+          key: 'age'
+        },
+        {
+          title: '旗舰版',
+          key: 'address'
+        }
+      ]
     }
   },
   methods: {
@@ -119,6 +174,20 @@ export default {
       padding: 20px;
       font-size: 20px;
       text-align: center;
+    }
+  }
+  .color-green {
+    float:right;
+    color:#42b983
+  }
+  .color-red {
+    float:right;
+    color:#f44
+  }
+  .ivu-select-item-selected {
+    .color-green,
+    .color-red {
+      color:#fff
     }
   }
 }
