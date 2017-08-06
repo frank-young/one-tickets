@@ -40,14 +40,14 @@
                     </Option>
                 </Select>
             </Form-item>
-            <Form-item label="多选框">
+            <!-- <Form-item label="多选框">
                 <Checkbox-group v-model="formValidate.checkbox">
                     <Checkbox label="吃饭"></Checkbox>
                     <Checkbox label="睡觉"></Checkbox>
                     <Checkbox label="跑步"></Checkbox>
                     <Checkbox label="看电影"></Checkbox>
                 </Checkbox-group>
-            </Form-item>
+            </Form-item> -->
             <Form-item label="开关">
                 <i-switch v-model="formValidate.isSwitch" size="large">
                     <span slot="open">开启</span>
@@ -55,8 +55,7 @@
                 </i-switch>
             </Form-item>
             <Form-item>
-                <Button type="primary">提交</Button>
-                <Button type="ghost" style="margin-left: 8px">取消</Button>
+                <Button type="primary" @click="handleSubmit('formInline')">提交</Button>
             </Form-item>
         </Form>
       </div>

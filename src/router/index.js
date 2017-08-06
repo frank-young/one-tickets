@@ -7,6 +7,7 @@ import Dashbord from '@/components/dashbord/Index'
 import System from '@/components/system/Index'
 import Login from '@/components/auth/Login'
 import Signup from '@/components/auth/Signup'
+import Signpay from '@/components/auth/Signpay'
 import Forget from '@/components/auth/Forget'
 import SetPassword from '@/components/auth/SetPassword'
 
@@ -38,6 +39,12 @@ const router = new Router({
       path: '/setpassword',
       name: 'SetPassword',
       component: SetPassword,
+      meta: {guest: true}
+    },
+    {
+      path: '/signpay',
+      name: 'Signpay',
+      component: Signpay,
       meta: {guest: true}
     },
     {
