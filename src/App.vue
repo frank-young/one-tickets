@@ -25,7 +25,6 @@ export default {
   },
   created () {
     this.isLoginCtrl()
-    console.log(this.isLogin)
   },
   methods: {
     isLoginCtrl () {

@@ -17,7 +17,7 @@
             <Form-item label="验证码">
               <Row>
                 <Col span="13">
-                  <Input v-model="formValidate.input" placeholder="请输入验证码"></Input>
+                  <Input v-model="formValidate.verify" placeholder="请输入验证码"></Input>
                 </Col>
                 <Col span="10" offset="1">
                   <Button type="primary" long>发送验证码</Button>
@@ -65,7 +65,7 @@
       <Modal
           v-model="modal"
           title="账户版本"
-          width="780">
+          width="960">
           <!-- <Row>
             <Col span="6">
               <div class="beta-wrap">
@@ -106,15 +106,9 @@ export default {
         name: '',
         store: '',
         phone: '',
-        input: '',
+        verify: '',
         select: 'TEST',
-        radio: 'male',
-        checkbox: [],
-        isSwitch: true,
-        date: '',
-        time: '',
-        slider: [20, 50],
-        textarea: ''
+        isSwitch: true
       },
       ruleValidate: {
         name: V.verify.name,
@@ -125,20 +119,196 @@ export default {
       // table
       columns: [
         {
+          title: ' ',
+          key: 'one'
+        },
+        {
           title: '免费版',
-          key: 'name'
+          key: 'two',
+          render: (h, params) => {
+            if (params.row.two === true) {
+              return h('div', [
+                h('Icon', {
+                  props: {
+                    type: 'ios-checkmark'
+                  }
+                })
+              ])
+            }
+          }
         },
         {
           title: '基础版',
-          key: 'name'
+          key: 'three',
+          render: (h, params) => {
+            if (params.row.three === true) {
+              return h('div', [
+                h('Icon', {
+                  props: {
+                    type: 'ios-checkmark'
+                  }
+                })
+              ])
+            }
+          }
         },
         {
           title: '高级版',
-          key: 'age'
+          key: 'four',
+          render: (h, params) => {
+            if (params.row.four === true) {
+              return h('div', [
+                h('Icon', {
+                  props: {
+                    type: 'ios-checkmark'
+                  }
+                })
+              ])
+            }
+          }
         },
         {
           title: '旗舰版',
-          key: 'address'
+          key: 'five',
+          render: (h, params) => {
+            if (params.row.five === true) {
+              return h('div', [
+                h('Icon', {
+                  props: {
+                    type: 'ios-checkmark'
+                  }
+                })
+              ])
+            }
+          }
+        }
+      ],
+      tableData: [
+        {
+          one: '功能1',
+          two: true,
+          three: true,
+          four: true,
+          five: true
+        },
+        {
+          one: '功能2',
+          two: false,
+          three: true,
+          four: true,
+          five: true
+        },
+        {
+          one: '功能3',
+          two: false,
+          three: false,
+          four: true,
+          five: true
+        },
+        {
+          one: '功能4',
+          two: true,
+          three: true,
+          four: true,
+          five: true
+        },
+        {
+          one: '功能5',
+          two: false,
+          three: true,
+          four: true,
+          five: true
+        },
+        {
+          one: '功能6',
+          two: false,
+          three: false,
+          four: true,
+          five: true
+        },
+        {
+          one: '功能1',
+          two: true,
+          three: true,
+          four: true,
+          five: true
+        },
+        {
+          one: '功能2',
+          two: false,
+          three: true,
+          four: true,
+          five: true
+        },
+        {
+          one: '功能3',
+          two: false,
+          three: false,
+          four: true,
+          five: true
+        },
+        {
+          one: '功能1',
+          two: true,
+          three: true,
+          four: true,
+          five: true
+        },
+        {
+          one: '功能2',
+          two: false,
+          three: true,
+          four: true,
+          five: true
+        },
+        {
+          one: '功能3',
+          two: false,
+          three: false,
+          four: true,
+          five: true
+        },
+        {
+          one: '功能1',
+          two: true,
+          three: true,
+          four: true,
+          five: true
+        },
+        {
+          one: '功能2',
+          two: false,
+          three: true,
+          four: true,
+          five: true
+        },
+        {
+          one: '功能3',
+          two: false,
+          three: false,
+          four: true,
+          five: true
+        },
+        {
+          one: '功能1',
+          two: true,
+          three: true,
+          four: true,
+          five: true
+        },
+        {
+          one: '功能2',
+          two: false,
+          three: true,
+          four: true,
+          five: true
+        },
+        {
+          one: '功能3',
+          two: false,
+          three: false,
+          four: true,
+          five: true
         }
       ]
     }
@@ -148,7 +318,7 @@ export default {
       this.$refs[name].validate((valid) => {
         if (valid) {
           this.$Message.success('提交成功!')
-          this.$router.push({name: ''})
+          this.$router.push({name: 'Signpay'})
         } else {
           this.$Message.error('表单验证失败!')
         }
